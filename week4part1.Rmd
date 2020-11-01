@@ -9,3 +9,52 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## 1. Confidence Intervals
+
+
+```{r}
+otter_length <- c(38, 41, 50, 27, 32, 41, 48, 60, 43)
+t.test(otter_length)
+
+```
+
+## T-test (1-sample t-test)
+
+See a claim: mean otter length is 50 inches
+
+Use your data to test that claim.  
+
+```{r}
+otter_test <- t.test(x = otter_length, mu = 50)
+otter_test
+
+
+```
+
+### P Value
+
+We tested the claim that mean otter length is 50 inches and got a p-value of .0444:
+
+If the population mean really is 50 inches, then there's a 4.444% chance that we could have randomly taken a sample from our population that has a mean that is at LEAST as different from 50 as my sample mean
+
+
+
+## Two sample t-test
+
+```{r}
+desert_bighorns <- c(32, 44, 18, 26, 50, 33, 42, 20)
+sierra_bighorns <- c(28, 31, 40, 42, 26, 29, 31)
+
+t.test(x = desert_bighorns, y = sierra_bighorns)
+
+```
+
+### Wut dis mean
+
+Null hypothesis: Difference in means is equal to 0
+
+P Value = .8849.  If these samples are drawn from populations with the same mean (null hypothesis), there's an 88.5% chance that additional samples taken from those two populations will be at LEAST as different as these samples. 
+
+
+
+
